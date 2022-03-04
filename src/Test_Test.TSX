@@ -241,6 +241,56 @@ fff.myAge = 31
 
 
 
+/// Пространство имен и модули
+/// Пространство имен и модули
+/// Пространство имен и модули
+
+
+// глобальная и локальная область видимости 
+
+
+namespace Utils {
+  export const getPass = (name:string,age:number):string =>`${name}${age}`;
+
+  const PI:number = 3.123;
+
+  export const isEmpty = //<T>(data: T )T : boolean => !data
+};
+const isSecret = Utils.getPass('yauhen',31)
+const myPass = Utils.isEmpty(Utils.PI) 
+
+//допустим мы хотим экспортировать переменные в другой файл, для
+// этого нужно сделать слудещее
+
+// import {getPass, SECRET} from './Utils'
+
+// const myPass = getPass(SECRET,31)
+
+
+
+/// Пространство имен и модули
+/// Пространство имен и модули
+/// Пространство имен и модули
+
+
+
+
+
+
+
+/// Интерфейсы
+/// Интерфейсы
+/// Интерфейсы
+
+
+
+
+
+
+
+/// Интерфейсы
+/// Интерфейсы
+/// Интерфейсы
 
 
 
@@ -254,12 +304,61 @@ fff.myAge = 31
 
 
 
+// Общие типы Generic
+// Общие типы Generic
+// Общие типы Generic
+
+
+const getter = (data:any):any =>data
+
+
+getter(10).lenght  //undefined 
+getter('test').lenght //4
+// TypeScript нужнн тотальнаый контроль 
+
+
+
+
+//ES6
+// const gettt = T(data:T):T =>data 
+
+//ES5
+function ger <T>(data:T):T{
+  return data
+}
+// GENERIC ТИП динамически манипулирует подставляю данные вместо себя 
 
 
 
 
 
 
+const ergerger = (data:string):string => data
+const werfwewef = (data:number):number => data
+
+ergerger("test").length
+werfwewef(123).length
+
+
+
+
+
+
+// можно еще и вот так 
+
+function gg<T>(data:T):T {
+  return data
+}
+
+//есть еще вот такой способ вызывать функцию 
+gg<number>(10).length
+gg<string>('123').length
+
+
+
+// Общие типы Generic
+// Общие типы Generic
+// Общие типы Generic
 
 
 
@@ -274,6 +373,79 @@ fff.myAge = 31
 //   }
 // }
 
+
+
+
+type AdressType={
+  city?:string|null,
+  country:string|null
+}
+
+
+type UserType = {
+  sayHello: (message:string)=>void
+  name:string 
+  age:number
+  isSamurai:boolean
+  addres: AdressType|null
+}
+let usere2r: UserType={
+ sayHello(message:string){alert('yo')},
+  name: 'Dimych',
+  age:32,
+  isSamurai:true,
+  addres:{
+    city:'Minsk',
+    country: 'Belarus'
+  }
+}
+
+
+
+
+
+const summ= (a:string, b:string)=>{
+  return a+b
+}
+
+
+
+
+
+let initialState={
+  name: null as string |null,
+  age:null as number| null,
+  isSamurai:null as  boolean|null,
+  address:[] as Array<AdressType>,
+  counter:null as number|null,
+}
+
+export type InitialSTATETYPE = typeof initialState;
+
+
+
+let stateee2: InitialSTATETYPE = {
+  address:[{city:'sas',country:'wdwdw'}],
+  counter:123,
+  name: '123',
+  age:123,
+  isSamurai:true,
+}
+
+
+
+let GET_TASTK = 'APP/GETtastks'
+
+
+type GetStateUser = {
+  name:typeof GET_TASTK,
+  age:number
+}
+
+let userssss:GetStateUser = {
+  name:'APP/GETtastks',
+  age:12312312 ,
+}
 
 
 
